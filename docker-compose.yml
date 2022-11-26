@@ -11,7 +11,9 @@ services:
   links:
   - php
  php:
-  image: php:7.3-fpm
+  build:
+    context: .
+    dockerfile: Dockerfile.yml
   container_name: php-fpm
   volumes:
   - ./www:/www

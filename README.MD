@@ -1,0 +1,1 @@
+Para rodar execute docker-compose up
