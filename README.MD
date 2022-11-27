@@ -2,7 +2,7 @@ Para rodar execute docker-compose up no terminal ou run.bat(se windows)/ run.sh(
 
 Acessar no navegador:
 http://docker.localhost/
-
+Testes efetuados com arquivo customers.csv correspondente ao desafio.
 Referências:
 https://codepen.io/thibault-mahe/pen/qZbGEw
 https://codepen.io/emreberber/pen/oeREoZ
