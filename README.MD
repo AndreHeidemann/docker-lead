@@ -10,7 +10,7 @@ https://codepen.io/suthaethaepo/pen/JjJedpa
 https://codepen.io/SnailPJW/pen/NWxMXmy
 https://dev.to/jrnunes1993/como-criar-containers-com-php-mysql-e-nginx-utilizando-o-docker-compose-964
 
-| NR HELP |    DATA    | Entrada | Saida | Saldo de Horas | Descrição                                                                                                                                                                                                          |
+| TAREFA |    DATA    | Entrada | Saida | Saldo de Horas | Descrição                                                                                                                                                                                                          |
 |:-------:|:----------:|:-------:|:-----:|:--------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  TESTE  | 24/11/2022 |  19:30  | 20:30 |      01:00     | Criando a tela de importação                                                                                                                                                                                       |
 |  TESTE  | 25/11/2022 |  18:30  | 00:00 |      05:30     | Criação de ambiente docker & git/ Instrução de estrutura MVC                                                                                                                                                       |
