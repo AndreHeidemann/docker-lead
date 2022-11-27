@@ -12,27 +12,26 @@ class CsvService {
         $allowedTypes = ['csv'];
 
         if (!in_array($fileExtension, $allowedTypes)) {
-            return json_encode(['status' => 0, 'msg' => 'Formato de arquivo não permitido. Favor selecionar um arquivo CSV.']);
+            ECHO json_encode(['status' => 0, 'msg' => 'Formato de arquivo não permitido. Favor selecionar um arquivo CSV.']);
+            die();
         }
 
         if ($fileSize === 0) {
-            return json_encode(['status' => 0, 'msg' => 'Arquivo vazio.']);
+            ECHO json_encode(['status' => 0, 'msg' => 'Arquivo vazio.']);
+            die();
         }
 
         $data = $this->csvToArray($file);        
         if(empty($data)){
-            return json_encode(['status' => 0, 'msg' => 'Nenhum registro encontrado no arquivo CSV.']);
+            ECHO json_encode(['status' => 0, 'msg' => 'Nenhum registro encontrado no arquivo CSV.']);
+            die();
         }else{
             $insertError = [];  
             $successInsertCount = 0;          
             foreach ($data as $row) {
-                $insert = $model->insert($row);
+                $insert = $model->insert($row);                
                 if ($insert['status']==0) {
-                    array_push($insertError,$insert['data']);
-                    ECHO '<pre>';
-                    ECHO print_r($insert);
-                    ECHO '</pre>';  
-                    die();
+                    array_push($insertError,$insert['data']);                    
                 }else{
                     $successInsertCount++;
                 }                
@@ -45,8 +44,9 @@ class CsvService {
                     $endError .= $i." ".implode(', ',$error).";<br>";                    
                 }
             }
-
-            return json_encode(['status' => 1, 'msg' => 'Inserido '.$successInsertCount.' registro(s).'.$endError]);
+            
+            ECHO json_encode(array("status" => 1, "msg" => "Salvo um CSV com ".$successInsertCount." registros.".$endError));
+            die();
         }
     }
 

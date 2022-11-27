@@ -1,27 +1,12 @@
 <?php
 class CsvModel {
 
+    public $hostname, $dbname, $username, $password, $conn;
     
     
     public function insert($data)
-    {
-        include 'model/db.php';
-        $db = new Database;
-        // $host = "192.168.3.6";
-        // $username = "root";
-        // $password = "root";
-        // $db = "LEADS_DB";
-
-        // try {
-        //     $conn = new PDO("mysql:host=$host;dbname=$db", $username, $password);
-        //     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //     // echo "<h2>Conectado com sucesso.<h2>";
-        // } catch(PDOException $e) {
-        //     // echo 'ERROR: ' . $e->getMessage();
-        //     return ['status' => 0, 'msg' => 'Erro ao Conectar na Base: '.$e->getMessage()];
-        // }
-
-        $sql = "INSERT INTO LEADS_DB.lead(
+    {        
+        $sql = "INSERT INTO LEADS_DB.LEAD(
                             ID,
                             FIRST_NAME,
                             LAST_NAME,
@@ -35,27 +20,46 @@ class CsvModel {
                         )
                     VALUES(
                             :id,
-                            :first_name,
-                            :last_name,
-                            :email,
-                            :gender,
+                            upper(:first_name),
+                            upper(:last_name),
+                            lcase(:email),
+                            upper(:gender),
                             :ip_address,
-                            :company,
-                            :city,
-                            :title,
+                            upper(:company),
+                            upper(:city),
+                            upper(:title),
                             :website
                         ) ";
-        $execute = $db->customSelect($sql);
-        // $stmt= $conn->prepare($sql);
-        // $execute = $stmt->execute($data);
-        if($execute){
-            return ['status' => 1, 'msg' => 'Inserido registro com sucesso!', 'data' =>  $data];
-        }else{
-            return ['status' => 0, 'msg' => 'Erro ao inserir registro!', 'data' => $data];
+        $this->host_name = "mysql";
+        $this->dbname = "LEADS_DB";
+        $this->username = "root";
+        $this->password = "root";
+        // Conexão com a base
+        try {
+            $this->conn = new PDO("mysql:host=$this->host_name;dbname=$this->dbname", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {            
+            return ['status' => 0, 'msg' => 'Erro ao conectar na base! '.$e->getMessage(), 'data' => $data];
         }
-
-
-        
-
+        // Executa insert
+        try {
+            $stmt = $this->conn->prepare($sql);   
+            $stmt->bindValue(':id', $data['id']);            
+            $stmt->bindValue(':first_name', $data['first_name']);
+            $stmt->bindValue(':last_name', $data['last_name']);
+            $stmt->bindValue(':email', $data['email']);
+            $stmt->bindValue(':gender', $data['gender']);
+            $stmt->bindValue(':ip_address', $data['ip_address']);
+            $stmt->bindValue(':company', $data['company']);
+            $stmt->bindValue(':city', preg_replace('/[^A-Za-z0-9\-]/', '', $data['city']));            
+            $stmt->bindValue(':title', $data['title']);
+            $stmt->bindValue(':website', $data['website']);
+            $execute = $stmt->execute();
+            
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            return ['status' => 0, 'msg' => 'Erro ao inserir registro! '.$e->getMessage(), 'data' => $data];
+        }
+        return ['status' => 1, 'msg' => 'Inserido registro com sucesso!', 'data' =>  $data];
     }
 }
