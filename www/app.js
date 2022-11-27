@@ -6,7 +6,7 @@ const baseUrl = 'http://docker.localhost/api';
 
 (function() {
     'use strict';
-
+    document.body.style.zoom = "80%";
     const baseUrl = 'http://docker.localhost/api';
 
     $('.input-file').each(function() {
@@ -266,8 +266,8 @@ const baseUrl = 'http://docker.localhost/api';
                 }
             }
         });
-    }
-  
+    }  
+
     refreshDataTable();    
 })();
 
