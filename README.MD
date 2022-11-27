@@ -1,14 +1,25 @@
-Para rodar execute docker-compose up no terminal ou run.bat(se windows)/ run.sh(OS) dentro do diretorio.git 
-Testes efetuados com arquivo customers.csv correspondente ao desafio.
-Acessar no navegador:
-http://docker.localhost/
-Testes efetuados com arquivo customers.csv correspondente ao desafio.
-Referências:
-https://codepen.io/thibault-mahe/pen/qZbGEw
-https://codepen.io/emreberber/pen/oeREoZ
-https://codepen.io/suthaethaepo/pen/JjJedpa
-https://codepen.io/SnailPJW/pen/NWxMXmy
-https://dev.to/jrnunes1993/como-criar-containers-com-php-mysql-e-nginx-utilizando-o-docker-compose-964
+Para rodar execute docker-compose up no terminal ou run.bat(se windows)/ run.sh(OS) dentro do diretorio.git  
+
+Testes efetuados com arquivo customers.csv correspondente ao desafio.  
+
+Acessar no navegador:  
+
+http://docker.localhost/  
+
+Testes efetuados com arquivo customers.csv correspondente ao desafio.  
+
+Referências:  
+
+https://codepen.io/thibault-mahe/pen/qZbGEw  
+
+https://codepen.io/emreberber/pen/oeREoZ  
+
+https://codepen.io/suthaethaepo/pen/JjJedpa  
+
+https://codepen.io/SnailPJW/pen/NWxMXmy  
+
+https://dev.to/jrnunes1993/como-criar-containers-com-php-mysql-e-nginx-utilizando-o-docker-compose-964  
+
 
 | TAREFA |    DATA    | Entrada | Saida | Saldo de Horas | Descrição                                                                                                                                                                                                          |
 |:-------:|:----------:|:-------:|:-----:|:--------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
