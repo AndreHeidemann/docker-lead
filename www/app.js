@@ -110,7 +110,7 @@ const baseUrl = 'http://docker.localhost/api';
                     useSeriesColors: false
                 },
             },
-            labels: ['Possue Gênero', 'Gênero não informado'],
+            labels: ['Possue Sobrenome', 'Sobrenome não informado'],
             responsive: [{
                 breakpoint: 480,
                 options: {
@@ -159,7 +159,7 @@ const baseUrl = 'http://docker.localhost/api';
                     useSeriesColors: false
                 },
             },
-            labels: ['Possue Gênero', 'Gênero não informado'],
+            labels: ['Email Válido', 'Email Inválido'],
             responsive: [{
                 breakpoint: 480,
                 options: {
