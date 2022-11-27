@@ -1,1 +1,1 @@
-Para rodar execute docker-compose up
+Para rodar execute docker-compose up no terminal ou run.bat(se windows)/ run.sh(OS) dentro do diretorio.
