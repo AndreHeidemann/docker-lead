@@ -6,7 +6,6 @@ Acessar no navegador:
 
 http://docker.localhost/  
 
-Testes efetuados com arquivo customers.csv correspondente ao desafio.  
 
 Referências:  
 
